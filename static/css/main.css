@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+  }
+  
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  
+  div.home {
+    padding: 5px;
+    margin: 10px;
+    text-align:center;
+    background-color: #E6E6FA;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+  }
+  
+  h2 {
+    font-size: 3em;
+    margin-top: 5px;
+    text-align: center;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+  }
+  
+  h3 {
+    font-size: 1.7em;
+    font-weight: 100;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: #999;
+  }
+  
+  .menu {
+    float: right;
+    margin-top: 8px;
+  }
+  
+  .menu li {
+    display: inline;
+  }
+  
+  .menu li + li {
+    margin-left: 35px;
+  }
+  
+  .menu li a {
+    color: #444;
+    text-decoration: none;
+  }
+
+  .button{
+    background-color: #00FFFF;
+    border: none;
+    border-radius: 6px;
+    color: #000000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button:hover{
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+  }
+
+  .green{
+    background-color: #00FF00;
+  }
+  .red{
+    background-color:#FF0000
+  }
+  .yellow{
+    background-color:#FFFF00
+  }
+  .blue{
+    background-color:#0000FF
+  }
+  .pink{
+      background-color: #FF00FF;
+  }
