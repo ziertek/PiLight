@@ -102,15 +102,15 @@ class UnicornWrapper:
         v = v / 100
         return tuple(round(i * 255) for i in colorsys.hsv_to_rgb(h,s,v))
     
-    def htmlToRGB(self, html):
-        if len(html) is 6:
-            r = int(f"{html[0]}{html[1]}", 16)
-            g = int(f"{html[2]}{html[3]}", 16)
-            b = int(f"{html[4]}{html[5]}", 16)
-        elif len(html) > 6:
-            r = int(f"{html[1]}{html[2]}", 16)
-            g = int(f"{html[3]}{html[4]}", 16)
-            b = int(f"{html[5]}{html[6]}", 16)
-        else:
-            raise Exception("The Hex value is not in the correct format it should RRGGBB or #RRGGBB the same as HTML")
-        return tuple(r,g,b)
+    # def htmlToRGB(self, html):
+    #     if len(html) is 6:
+    #         r = int(f"{html[0]}{html[1]}", 16)
+    #         g = int(f"{html[2]}{html[3]}", 16)
+    #         b = int(f"{html[4]}{html[5]}", 16)
+    #     elif len(html) > 6:
+    #         r = int(f"{html[1]}{html[2]}", 16)
+    #         g = int(f"{html[3]}{html[4]}", 16)
+    #         b = int(f"{html[5]}{html[6]}", 16)
+    #     else:
+    #         raise Exception("The Hex value is not in the correct format it should RRGGBB or #RRGGBB the same as HTML")
+    #     return tuple(r,g,b)
