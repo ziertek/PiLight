@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import contextlib
+import io
 import colorsys
 import spidev
 import unicornhat
@@ -56,7 +58,9 @@ class UnicornWrapper:
         self.brightness = brightness
 
         if self.type == 'phat':
-            self.hat.brightness(brightness)
+            f = io.StringIO()
+            with contextlib.redirect_stdout(f):
+                self.hat.brightness(brightness)
         elif self.type == 'mini':
             self.hat.set_brightness(brightness)
     
