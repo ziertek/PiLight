@@ -1,2 +1,4 @@
 flask
 spidev
+unicornhat
+unicornhatmini

@@ -61,6 +61,14 @@
             });
             return false;
           });
+          $('a#Blank').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/api/Blank',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
         });
 </script>
 <div class="home">
@@ -71,6 +79,7 @@
     <a href=# id=Pink><button class="button pink">Pink/Loving</button></a>
     <a href=# id=Blue><button class="button blue">Blue/Lunch</button></a>
     <a href=# id=Teal><button class="button teal">Teal/Chatty</button></a>
+    <a href=# id=Blank><button class="button">Blank</button></a>
 </div>
 <div class="home">
     <h2>Custom Colours:</h2>

@@ -1,13 +1,11 @@
-from flask import Flask, render_template
-from lib.unicorn_wrapper import UnicornWrapper
+#!/usr/bin/env python
 
-unicorn = UnicornWrapper()
+from flask import Flask, render_template
+from lib.phat_wrapper import PhatWrapper
+
+hat = PhatWrapper()
 
 app = Flask(__name__)
-
-# def setRGB(R,G,B):
-#     unicorn.setAll(R,G,B)
-#     return
 
 @app.route("/")
 def controller():
@@ -16,43 +14,49 @@ def controller():
 # Colour routes
 @app.route('/api/Green')
 def Green():
-    #setRGB(0,255,0)
+    hat.setAll(0,255,0)
     print ("Green")
     return ("nothing")
 
 @app.route('/api/Red')
 def Red():
-    #setRGB(255,0,0)
+    hat.setAll(255,0,0)
     print ("Red")
     return ("nothing")
 
 @app.route('/api/Yellow')
 def Yellow():
-    #setRGB(255,255,0)
+    hat.setAll(255,255,0)
     print ("Yellow")
     return ("nothing")
 
 @app.route('/api/Blue')
 def Blue():
-    #setRGB(0,0,255)
+    hat.setAll(0,0,255)
     print ("Blue")
     return ("nothing")
 
 @app.route('/api/Pink')
 def Pink():
-    #setRGB(255,0,255)
+    hat.setAll(255,0,255)
     print ("Pink")
     return ("nothing")
 
 @app.route('/api/Teal')
 def Teal():
-    #setRGB(0,255,255)
+    hat.setAll(0,255,255)
     print ("Teal")
     return ("nothing")
 
 @app.route('/api/CustomColour')
 def CustomColour():
     print ("Custom")
+    return ("nothing")
+
+@app.route('/api/Blank')
+def Teal():
+    hat.clear()
+    print ("Blank")
     return ("nothing")
 
 if __name__ == "__main__":
