@@ -11,7 +11,7 @@ app = Flask(__name__)
 def controller():
     return render_template('controller.html')
 
-# Colour routes
+# Colour routes, look at making them simply all the same API call with varriable instead
 @app.route('/api/Green')
 def Green():
     hat.setAll(0,255,0)
@@ -54,7 +54,7 @@ def CustomColour():
     return ("nothing")
 
 @app.route('/api/Blank')
-def Teal():
+def Blank():
     hat.clear()
     print ("Blank")
     return ("nothing")
