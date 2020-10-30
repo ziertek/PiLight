@@ -56,7 +56,6 @@ body {
   }
 
   .button{
-    background-color: #00FFFF;
     border: none;
     border-radius: 6px;
     color: #000000;
@@ -68,11 +67,9 @@ body {
     margin: 4px 2px;
     cursor: pointer;
   }
-
   .button:hover{
     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
   }
-
   .green{
     background-color: #00FF00;
   }
@@ -87,8 +84,14 @@ body {
     color: #E6E6FA;
   }
   .pink{
-      background-color: #FF00FF;
+    background-color: #FF00FF;
   }
   .teal{
-      background-color: #00FFFF;
+    background-color: #00FFFF;
+  }
+  .rainbow{
+    background-image: linear-gradient(to left, #00FF00, #FF0000, #FFFF00, #FF00FF, #00FFFF);
+  }
+  .blank{
+    border: 3px;
   }
