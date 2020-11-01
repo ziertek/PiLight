@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import colorsys
+import time
+import math
 from flask import Flask, render_template
 from lib.phat_wrapper import PhatWrapper
 
@@ -12,51 +15,79 @@ def controller():
     return render_template('controller.html')
 
 # Colour routes, look at making them simply all the same API call with varriable instead
-@app.route('/api/Green')
+@app.route('/api/colour/Green')
 def Green():
     hat.setAll(0,255,0)
-    print ("Green")
     return ("nothing")
 
-@app.route('/api/Red')
+@app.route('/api/colour/Red')
 def Red():
     hat.setAll(255,0,0)
-    print ("Red")
     return ("nothing")
 
-@app.route('/api/Yellow')
+@app.route('/api/colour/Yellow')
 def Yellow():
     hat.setAll(255,255,0)
-    print ("Yellow")
     return ("nothing")
 
-@app.route('/api/Blue')
+@app.route('/api/colour/Blue')
 def Blue():
     hat.setAll(0,0,255)
-    print ("Blue")
     return ("nothing")
 
-@app.route('/api/Pink')
+@app.route('/api/colour/Pink')
 def Pink():
     hat.setAll(255,0,255)
-    print ("Pink")
     return ("nothing")
 
-@app.route('/api/Teal')
+@app.route('/api/colour/Teal')
 def Teal():
     hat.setAll(0,255,255)
-    print ("Teal")
     return ("nothing")
 
-@app.route('/api/CustomColour')
+@app.route('/api/colour/Rainbow')
+def Rainbow():
+    i = 0.0
+    offset = 30
+    while True:
+            i = i + 0.3
+            for y in range(4):
+                    for x in range(8):
+                            r = 0#x * 32
+                            g = 0#y * 32
+                            xy = x + y / 4
+                            r = (math.cos((x+i)/2.0) + math.cos((y+i)/2.0)) * 64.0 + 128.0
+                            g = (math.sin((x+i)/1.5) + math.sin((y+i)/2.0)) * 64.0 + 128.0
+                            b = (math.sin((x+i)/2.0) + math.cos((y+i)/1.5)) * 64.0 + 128.0
+                            r = max(0, min(255, r + offset))
+                            g = max(0, min(255, g + offset))
+                            b = max(0, min(255, b + offset))
+                            hat.set_pixel(x,y,int(r),int(g),int(b))
+            hat.show()
+            time.sleep(0.01)
+    return ("nothing")
+
+@app.route('/api/colour/CustomColour',  methods=['POST'])
 def CustomColour():
-    print ("Custom")
+    red = request.form['Red']
+    green = request.form['Green']
+    blue = request.form['Blue']
+    hat.setAll(red,green,blue)
     return ("nothing")
 
-@app.route('/api/Blank')
+@app.route('/api/colour/Blank')
 def Blank():
     hat.clear()
-    print ("Blank")
+    return ("nothing")
+
+@app.route('/api/system/Update')
+def Update():
+    os.system("/opt/UpdateScript/Update.sh")
+    return ("nothing")
+
+@app.route('/api/system/Shutdown')
+def Shutdown():
+    os.system("shutdown +2 'Shutdown trigger via API... Shutting down in 2 minute'")
     return ("nothing")
 
 if __name__ == "__main__":

@@ -8,15 +8,16 @@
 <h1>Light Controller</h1>
 <div class="home">
     <h2>Universal Settings:</h2>
-    Include: Brightness, Rotation, "Use client settings" basically a toggle to make it take input from the client or from the web page
-    For the client, could have the API look for a user or source that is passed to it to determine if it should be done or not.
-    Setup these settings to be written and read from config file that can also be updated?
+    Include: Brightness, Rotation, "Use client settings" basically a toggle to make it take input from the client or from the web page<br>
+    For the client, could have the API look for a user or source that is passed to it to determine if it should be done or not.<br>
+    Setup these settings to be written and read from config file that can also be updated?<br>
+    Setup a setting for "user" instead of naming the page after myself, make it so people can set the user<br>
 </div>
 <script type=text/javascript>
         $(function() {
           $('a#Green').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Green',
+            $.getJSON('/api/colour/Green',
                 function(data) {
               //do nothing
             });
@@ -24,7 +25,7 @@
           });
           $('a#Red').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Red',
+            $.getJSON('/api/colour/Red',
                 function(data) {
               //do nothing
             });
@@ -32,7 +33,7 @@
           });
           $('a#Yellow').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Yellow',
+            $.getJSON('/api/colour/Yellow',
                 function(data) {
               //do nothing
             });
@@ -40,7 +41,7 @@
           });
           $('a#Blue').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Blue',
+            $.getJSON('/api/colour/Blue',
                 function(data) {
               //do nothing
             });
@@ -48,7 +49,7 @@
           });
           $('a#Pink').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Pink',
+            $.getJSON('/api/colour/Pink',
                 function(data) {
               //do nothing
             });
@@ -56,7 +57,7 @@
           });
           $('a#Teal').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Teal',
+            $.getJSON('/api/colour/Teal',
                 function(data) {
               //do nothing
             });
@@ -64,7 +65,31 @@
           });
           $('a#Blank').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/api/Blank',
+            $.getJSON('/api/colour/Blank',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          $('a#Rainbow').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/api/colour/Rainbow',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          $('a#Update').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/api/system/Update',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+          $('a#shutdown').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/api/system/Shutdown',
                 function(data) {
               //do nothing
             });
@@ -84,15 +109,21 @@
     <a href=# id=Blank><button class="button blank">Blank/Off</button></a>
 </div>
 <div class="home">
-    <h2>Custom Colours:</h2>
-    <p>enter in RGB info</p>
+    <h2>Custom Colour:</h2>
+    <form action = "/api/CustomColour" method = "post">
+        <p>Red:<input type="number" min="0" max="255" value="0" name="Red"/>
+        Green:<input type="number" min="0" max="255" value="0" name="Green"/>
+        Blue:<input type="number" min="0" max="255" value="0" name="Blue"/></p>
+        <p><input type = "submit" value = "Set Colour" /></p>
+     </form>
 </div>
 <div class="home">
     <h2>Animations:</h2>
 </div>
 <div class="home">
     <h2>Pi Functions:</h2>
-    Add stuff like Update Pi, shutdown Pi
+    <a href=# id=Update><button class="button">Update</button></a>
+    <a href=# id=Shutdown><button class="button">Shutdown</button></a>
 </div>
 </body>
 </html>
