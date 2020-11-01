@@ -7,6 +7,8 @@ import os
 from flask import Flask, render_template, request
 from lib.phat_wrapper import PhatWrapper
 
+gStatus = "Initialized"
+
 hat = PhatWrapper()
 
 app = Flask(__name__)
@@ -18,39 +20,53 @@ def controller():
 # Colour routes, look at making them simply all the same API call with varriable instead
 @app.route('/api/colour/Green')
 def Green():
+    global gStatus
+    gStatus = "Green"
     hat.setAll(0,255,0)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Red')
 def Red():
+    global gStatus
+    gStatus = "Red"
     hat.setAll(255,0,0)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Yellow')
 def Yellow():
+    global gStatus
+    gStatus = "Yellow"
     hat.setAll(255,255,0)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Blue')
 def Blue():
+    global gStatus
+    gStatus = "Blue"
     hat.setAll(0,0,255)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Pink')
 def Pink():
+    global gStatus
+    gStatus = "Pink"
     hat.setAll(255,0,255)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Teal')
 def Teal():
+    global gStatus
+    gStatus = "Teal"
     hat.setAll(0,255,255)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/Rainbow')
 def Rainbow():
+    global gStatus
+    gStatus = "Rainbow"
     i = 0.0
     offset = 30
-    while True:
+    while gStatus == "Rainbow":
             i = i + 0.3
             for y in range(4):
                     for x in range(8):
@@ -63,33 +79,43 @@ def Rainbow():
                             r = max(0, min(255, r + offset))
                             g = max(0, min(255, g + offset))
                             b = max(0, min(255, b + offset))
-                            hat.set_pixel(x,y,int(r),int(g),int(b))
+                            hat.setPixel(x,y,int(r),int(g),int(b))
             hat.show()
             time.sleep(0.01)
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/colour/CustomColour',  methods=['POST'])
 def CustomColour():
+    global gStatus
+    gStatus = "Custom"
     red = request.form['Red']
     green = request.form['Green']
     blue = request.form['Blue']
-    hat.setAll(red,green,blue)
-    return render_template('controller.html')
+    print(red,green,blue)
+    #hat.setAll(red,green,blue)
+    return 'OK'
 
 @app.route('/api/colour/Blank')
 def Blank():
+    global gStatus
+    gStatus = "Blank"
     hat.clear()
-    return ("nothing")
+    return 'OK'
 
+# System routes
 @app.route('/api/system/Update')
 def Update():
+    global gStatus
+    gStatus = "Update"
     os.system("/opt/UpdateScript/Update.sh")
-    return ("nothing")
+    return 'OK'
 
 @app.route('/api/system/Shutdown')
 def Shutdown():
+    global gStatus
+    gStatus = "Shutdown"
     os.system("shutdown +2 'Shutdown trigger via API... Shutting down in 2 minute'")
-    return ("nothing")
+    return 'OK'
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')

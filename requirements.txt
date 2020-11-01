@@ -1,4 +1,5 @@
 flask
+pyyaml
 spidev
 unicornhat
 unicornhatmini

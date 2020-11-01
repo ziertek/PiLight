@@ -5,13 +5,13 @@
 </head>
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<h1>Light Controller</h1>
+<h1>PiLight Controller</h1>
 <div class="home">
     <h2>Universal Settings:</h2>
-    Include: Brightness, Rotation, "Use client settings" basically a toggle to make it take input from the client or from the web page<br>
-    For the client, could have the API look for a user or source that is passed to it to determine if it should be done or not.<br>
+    Include: Brightness, Rotation, "Use Web settings" basically a toggle to make it take input from the windows agent or from the web page<br>
+    For the agent, could have the API look for a user or source that is passed to it to determine if it should be done or not.<br>
     Setup these settings to be written and read from config file that can also be updated?<br>
-    Setup a setting for "user" instead of naming the page after myself, make it so people can set the user<br>
+    Setup a setting for "name" instead of naming the page after myself, make it so people can set the name<br>
 </div>
 <script type=text/javascript>
         $(function() {
@@ -96,6 +96,20 @@
             return false;
           });
         });
+        $(document).ready(function() {
+          $('form').on('submit', function(e) {
+            e.preventDefault()
+            $.ajax({
+                data : {
+                  Red : $('#Red').val(),
+                  Green : $('#Green').val(),
+                  Blue : $('#Blue').val()
+                      },
+                  type : 'POST',
+                  url : '/api/colour/CustomColour'
+                  })
+            });
+        });
 </script>
 <div class="home">
     <h2>Standard Colours:</h2>
@@ -110,20 +124,20 @@
 </div>
 <div class="home">
     <h2>Custom Colour:</h2>
-    <form action = "/api/colour/CustomColour" method = "post">
-        <p>Red:<input type="number" min="0" max="255" value="0" name="Red"/>
-        Green:<input type="number" min="0" max="255" value="0" name="Green"/>
-        Blue:<input type="number" min="0" max="255" value="0" name="Blue"/></p>
+    <form action = "/api/colour/CustomColour" method = "POST">
+        <p>Red:<input type="number" min="0" max="255" value="0" name="Red" id="Red"/>
+        Green:<input type="number" min="0" max="255" value="0" name="Green" id="Green"/>
+        Blue:<input type="number" min="0" max="255" value="0" name="Blue" id="Blue"/></p>
         <p><input type = "submit" value = "Set Colour" /></p>
      </form>
 </div>
 <div class="home">
-    <h2>Animations:</h2>
+    <h2>Icons:</h2>
 </div>
 <div class="home">
     <h2>Pi Functions:</h2>
-    <a href=# id=Update><button class="button">Update</button></a>
-    <a href=# id=Shutdown><button class="button">Shutdown</button></a>
+    <a href=# id=Update><button class="button">Update & Reboot Pi</button></a>
+    <a href=# id=Shutdown><button class="button">Shutdown Pi</button></a>
 </div>
 </body>
 </html>
