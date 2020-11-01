@@ -34,3 +34,6 @@ class PhatWrapper:
 
     def getBrightness(self):
         return self.brightness
+
+    def setPixel(self, x, y, r, g, b):
+        self.hat.set_pixel(x, y, r, g, b)

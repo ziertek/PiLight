@@ -3,7 +3,8 @@
 import colorsys
 import time
 import math
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, request
 from lib.phat_wrapper import PhatWrapper
 
 hat = PhatWrapper()
@@ -73,7 +74,7 @@ def CustomColour():
     green = request.form['Green']
     blue = request.form['Blue']
     hat.setAll(red,green,blue)
-    return ("nothing")
+    return render_template('controller.html')
 
 @app.route('/api/colour/Blank')
 def Blank():
