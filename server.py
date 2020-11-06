@@ -10,6 +10,7 @@ from lib.phat_wrapper import PhatWrapper
 gStatus = "Initialized"
 
 hat = PhatWrapper()
+hat.setAll(255,255,255)
 
 app = Flask(__name__)
 
@@ -103,18 +104,20 @@ def Blank():
     return 'OK'
 
 # System routes
-@app.route('/api/system/Update')
-def Update():
+@app.route('/api/system/UpdatePi')
+def UpdatePi():
     global gStatus
-    gStatus = "Update"
-    os.system("/opt/UpdateScript/Update.sh")
+    gStatus = "Update Pi"
+    hat.clear()
+    os.system("Update/UpdatePi.sh")
     return 'OK'
 
 @app.route('/api/system/Shutdown')
 def Shutdown():
     global gStatus
     gStatus = "Shutdown"
-    os.system("shutdown +2 'Shutdown trigger via API... Shutting down in 2 minute'")
+    hat.clear()
+    os.system("shutdown now 'Shutdown trigger via API'")
     return 'OK'
 
 if __name__ == "__main__":

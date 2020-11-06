@@ -12,7 +12,7 @@ import unicornhat as unicorn
 
 class PhatWrapper:
     def __init__(self):
-        with open("config.yaml","r") as ymlfile:
+        with open("lib/config.yaml","r") as ymlfile:
             cfg = yaml.load(ymlfile,Loader=yaml.SafeLoader)
 
         self.brightness = cfg["pHat"]["Brightness"]
