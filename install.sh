@@ -2,7 +2,7 @@
 SCRIPT=`realpath -s $0`
 SCRIPTPATH=`dirname $SCRIPT`
 STARTPWD=$PWD
-GIT_URL=`https://github.com/ziertek/PiLight`
+GIT_URL='https://github.com/ziertek/PiLight'
 
 # Define colors and styles
 NORMAL="\033[0m"
