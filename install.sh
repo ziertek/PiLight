@@ -18,15 +18,14 @@ show_msg() {
 usage() {
     echo -e "${BOLD}Usage:${NORMAL}"
     echo -e "  -i  --install-dir        Specify where you want to install to"
-    echo -e "                           Default is: ${BOLD}${SCRIPTPATH}${NORMAL}"
-    echo -e "  -d  --development        Install for development only (no service installation)"
+    echo -e "                           Default is: ${BOLD}/opt/${NORMAL}"
     echo -e "  -V  --verbose            Shows command output for debugging"
     echo -e "  -v  --version            Shows version details"
     echo -e "  -h  --help               Shows this usage message"
 }
 
 version() {
-    echo -e "${BOLD}PiLight installation script 0.1${NORMAL}"
+    echo -e "${BOLD}PiLight installation script 0.5${NORMAL}"
     echo -e "URL: $GIT_URL"
 }
 
@@ -36,7 +35,7 @@ installSystemdService() {
     if [[ ! -f /etc/systemd/system/PiLight.service ]]; then
         sudo cp PiLight.service /etc/systemd/system/PiLight.service
     else
-        sudo sed -i "s+WorkingDirectory=/home/pi/unicorn-busy-server+WorkingDirectory=$INSTALL_DIR+g" /etc/systemd/system/PiLight.service
+        sudo sed -i "s+WorkingDirectory=/opt+WorkingDirectory=$INSTALL_DIR+g" /etc/systemd/system/PiLight.service
     fi
 }
 
@@ -48,14 +47,11 @@ enableSystemdService() {
 
 
 VERBOSE=false
-DEVELOPMENT=false
 INSTALL_DIR='/opt'
 while [ "$1" != "" ]; do
     case $1 in
         -i | --install-dir)     shift
                                 INSTALL_DIR=$1
-                                ;;
-        -d | --development)     DEVELOPMENT=true
                                 ;;
         -V | --verbose)         VERBOSE=true
                                 ;;
@@ -80,7 +76,7 @@ if [ $VERBOSE == "false" ]; then
 fi
 
 # Check if we have the required files or if we need to clone them
-FILES=("server.py" "requirements.txt" "PiLight.service" "lib/__init__.py" "lib/phat_Wrapper.py" "lib/config.yaml")
+FILES=("server.py" "requirements.txt" "PiLight.service" "lib/__init__.py" "lib/phat_Wrapper.py" "lib/config.yaml" "templates/controller.html" "static/css/main.css")
 FILECHECK=true
 for FILE in ${FILES[@]}; do
     if [ $INSTALL_DIR != $SCRIPTPATH ]; then
@@ -125,10 +121,8 @@ case $(uname -s) in
                                                 sudo apt-get install -y python3-pip python3-dev
                                                 show_msg "${GREEN}Installing needed files from pip...${NORMAL}"
                                                 sudo pip3 install -r ./requirements.txt
-                                                if [[ $DEVELOPMENT == "false" ]]; then
-                                                    installSystemdService
-                                                    enableSystemdService
-                                                fi
+                                                installSystemdService
+                                                enableSystemdService
                                                 ;;
                         *)                      show_msg "${RED}${BOLD}Unsupported distribution, please consider submitting a pull request to extend the script${NORMAL}"
                                                 exit 1

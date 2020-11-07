@@ -5,6 +5,8 @@ WARNING: This readme is still a work in progress.
 * [Hardware](#Hardware)
     * [Shopping List](#Shopping)
     * [Build Instructions](#Build)
+* [Installation](#Installation)
+* [Usage](#Usage)
 * [ToDo](#ToDo)
 * [License](#License)
 
@@ -22,7 +24,7 @@ Of course you can build this with in many different variations but here I list e
 | pHat Diffuser | 1 | $5.00 | [Pimoroni](https://shop.pimoroni.com/products/phat-diffuser) | The LEDs are quite bright, the deffuser makes it much nicer |
 | Pibow Zero W | 1 | $8.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-zero-w) | Case for the Pi.  Many options are out there. |
 | Pogo Pins | 3 | $10.00 | [Pimoroni](https://shop.pimoroni.com/products/pogo-a-go-go-solderless-gpio-pogo-pins) | Only need 3, most places offer packs with many more. |
-| M2.5 Nylon Nuts & Bolts | $15.00 | 8 | [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | I had some M3 ones from a previous project from [Amazon](https://www.amazon.ca/Metric-Plastic-Machine-Assortment-M3X5mm/dp/B073F6Q66G/ref=sxts_sxwds-bia-wc-nc-drs1_0) that I used.  They were tight but worked. |
+| M2.5 Nylon Nuts & Bolts | 8 | $15.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | I had some M3 ones from a previous project from [Amazon](https://www.amazon.ca/Metric-Plastic-Machine-Assortment-M3X5mm/dp/B073F6Q66G/ref=sxts_sxwds-bia-wc-nc-drs1_0) that I used.  They were tight but worked. |
 
 Note prices are approximate and in Canadian Dollars with Canadian store links.  Pimoroni does show their price in CAD if you set the website to do so, but it does still ship from the UK.
 
@@ -47,13 +49,32 @@ If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDM
         NOTE: I found that the hat wouldn't work when I put the pogo pins right side up.  I instead put the pogo pins in the had's GPIO and put the Pi and case down onto the hat.
     Place hat on top, ensure the pins line up with the hat.
     Use bolts to to bolt LEDs and Diffuser down.
-5) Confirm pHat works
-    Once the Pi is started, login to SSH or open a terminal and run:
-        sudo python
-            Import unicornhat as hat
-            hat.set_All(255,255,255)
-            hat.show()
-    The hat should have all the LEDs bright white.
+5) Boot up and setup the software
+
+# Installation
+The installer has been setup to download the files should they be needed so you should be able to simply install curl (if it isn't already) and run the installer from the like so:
+```bash
+sudo apt install curl
+curl -sSL https://raw.githubusercontent.com/ziertek/PiLight/master/install.sh | sudo bash -
+```
+The Installer will install PiLight into the /opt/ directory by default but you can change the location using the -i argument.  The installer also setups up a service for PiLight.  If you don't want the service simply clone or download the repo and run:
+```bash
+sudo pip install -r .\requirements.txt
+sudo python server.py
+```
+
+Arguements:
+```bash
+  -i  --install-dir        Specify where you want to install to
+                           Default is: /opt/PiLight
+  -V  --verbose            Shows command output for debugging
+  -v  --version            Shows version details
+  -h  --help               Shows this usage message
+```
+# Usage
+When you install PiLight with the installer above it will automatically setup a service called PiLight.service.  This should start once the installer is done and any time the Pi is powered on.  Once the service has started the LEDs will set to White.  Once you see that you can browse to the webpage at http://*Pi-IP-Address*:5000/ and set the colours.
+
+The PiLight has a simple front end but it is meant to be used mostly with API calls for automatic changes.
 
 # ToDo
  - [ ] Finish Readme
