@@ -49,7 +49,7 @@ enableSystemdService() {
 
 VERBOSE=false
 DEVELOPMENT=false
-INSTALL_DIR=$SCRIPTPATH
+INSTALL_DIR='/opt'
 while [ "$1" != "" ]; do
     case $1 in
         -i | --install-dir)     shift
@@ -140,6 +140,5 @@ esac
 
 # Change permissions of the start up script
 sudo chmod +x Update/UpdatePi.sh
-sudo chmod +x ./start.sh
 cd $STARTPWD
 show_msg "${GREEN}${BOLD}Installation complete${NORMAL}"
