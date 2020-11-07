@@ -46,8 +46,6 @@ If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDM
  **MIT License**
 
  Copyright (c) 2020 [*Braden Magnan*](https://github.com/ziertek)
- Parts Copyright (c) 2020 [*Jamie Maynard*](https://github.com/j-maynard)
- Parts Copyright (c) 2020 [*Elio Struyf*](https://github.com/estruyf)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
