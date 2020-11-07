@@ -14,6 +14,7 @@ Of course you can build this with in many different variations but here I list e
 
 ## <a id="Shopping"></a>Shopping List:
 | Part | Quantity | Cost | URL | Notes |
+|------|:----------:|:------:|-----|-------|
 | PiZero W | 1 | $15.00 | [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero-w) [Amazon](https://www.amazon.ca/Raspberry-Pi-Zero-W/dp/B06XFZC3BX/ref=sr_1_5) |  |
 | Unicorn pHat | 1 | $18.00 | [Pimoroni](https://shop.pimoroni.com/products/unicorn-phat) | LED Hat |
 | Pibow Zero W | 1 | $8.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-zero-w) | Case for the Pi.  Many options are out there, I ran with this since I was buying from Pimoroni already. |
@@ -30,3 +31,26 @@ You will also need:
 If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDMI Adapter, OTG Adapter and Powersupply around.
 
 ## <a id="Build"></a>Build Instructions:
+
+# ToDo
+ - [ ] Finish Readme
+ - [ ] Add support for self updating
+ - [ ] Add some animations and icons
+ - [ ] Setup Favicon (have display the current status)
+ - [ ] Setup Status section of front end
+ - [ ] Put webpage name in config.yaml
+ - [ ] Put colour lables in config.yaml
+
+ # License
+
+ **MIT License**
+
+ Copyright (c) 2020 [*Braden Magnan*](https://github.com/ziertek)
+ Parts Copyright (c) 2020 [*Jamie Maynard*](https://github.com/j-maynard)
+ Parts Copyright (c) 2020 [*Elio Struyf*](https://github.com/estruyf)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
