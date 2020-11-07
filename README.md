@@ -5,6 +5,8 @@ WARNING: This readme is still a work in progress.
 * [Hardware](#Hardware)
     * [Shopping List](#Shopping)
     * [Build Instructions](#Build)
+* [ToDo](#ToDo)
+* [License](#License)
 
 # Introduction
 Like many other people I ran into estruyf's Unicorn Busy Light project and was inspired to build one as well.  You can find the original repo here: https://github.com/estruyf/unicorn-busy-server and his blog post about it here: https://www.eliostruyf.com/diy-building-busy-light-show-microsoft-teams-presence/.  Personally, I hadn't done any real coding in 10+ years and very little with Python so I when I attempted to fork the project and build some customizations I was fairly overwhelmed.  As a result, I built out this new project instead of using a fork.  Code has been borrowed from estruyf as well as j-maynard who forked the project too (https://github.com/j-maynard/unicorn-busy-server).
@@ -17,20 +19,41 @@ Of course you can build this with in many different variations but here I list e
 |------|:----------:|:------:|-----|-------|
 | PiZero W | 1 | $15.00 | [Pimoroni](https://shop.pimoroni.com/products/raspberry-pi-zero-w) [Amazon](https://www.amazon.ca/Raspberry-Pi-Zero-W/dp/B06XFZC3BX/ref=sr_1_5) |  |
 | Unicorn pHat | 1 | $18.00 | [Pimoroni](https://shop.pimoroni.com/products/unicorn-phat) | LED Hat |
-| Pibow Zero W | 1 | $8.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-zero-w) | Case for the Pi.  Many options are out there, I ran with this since I was buying from Pimoroni already. |
+| pHat Diffuser | 1 | $5.00 | [Pimoroni](https://shop.pimoroni.com/products/phat-diffuser) | The LEDs are quite bright, the deffuser makes it much nicer |
+| Pibow Zero W | 1 | $8.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-zero-w) | Case for the Pi.  Many options are out there. |
 | Pogo Pins | 3 | $10.00 | [Pimoroni](https://shop.pimoroni.com/products/pogo-a-go-go-solderless-gpio-pogo-pins) | Only need 3, most places offer packs with many more. |
-| M2.5 Nylon Nuts & Bolts | $15.00 | [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | I had some M3 ones from a previous project from [Amazon](https://www.amazon.ca/Metric-Plastic-Machine-Assortment-M3X5mm/dp/B073F6Q66G/ref=sxts_sxwds-bia-wc-nc-drs1_0) that I used.  They were tight but worked. |
+| M2.5 Nylon Nuts & Bolts | $15.00 | 8 | [Pimoroni](https://shop.pimoroni.com/products/pibow-extender-bolt-pack) | I had some M3 ones from a previous project from [Amazon](https://www.amazon.ca/Metric-Plastic-Machine-Assortment-M3X5mm/dp/B073F6Q66G/ref=sxts_sxwds-bia-wc-nc-drs1_0) that I used.  They were tight but worked. |
+
 Note prices are approximate and in Canadian Dollars with Canadian store links.  Pimoroni does show their price in CAD if you set the website to do so, but it does still ship from the UK.
 
 You will also need:
-    * Micro-USB powersupply
-    * Micro-USB OTG
-    * Mini HDMI cable/adapter
-    * Monitor with HDMI
-    * Keyboard/mouse
+    * Micro-USB powersupply<br>
+    * Micro-USB OTG<br>
+    * Mini HDMI cable/adapter<br>
+    * 16GB or larger MicroSD card<br>
+    * Monitor with HDMI<br>
+    * Keyboard/mouse<br>
 If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDMI Adapter, OTG Adapter and Powersupply around.
 
 ## <a id="Build"></a>Build Instructions:
+1) Install RaspberryPi OS Lite on SD Card
+    I have the Raspberry Pi Imager installed on my laptop.  Makes it really simple to image a MicroSD with a supported OS.  You can find instructions [here](https://www.raspberrypi.org/documentation/installation/installing-images/) from the Raspberry Pi Website.
+2) Assemble Pi
+    Put Micro SD in the Pi and assemble the case.  If you used the Pibow you can follow their instructions [here](https://learn.pimoroni.com/tutorial/sandyj/pibow-zero-assembly)
+3) Power up Pi and setup OS
+    Plugin the monitor, OTG, Keyboard/Mouse, and finally power and walk through the OS setup.  SparkFun has a pretty good page on how to setup the OS [here](https://learn.sparkfun.com/tutorials/getting-started-with-the-raspberry-pi-zero-wireless/all).
+4) Connect Hat
+    Place the pogo pins on pins 2, 6, and 12 [pinout](https://pinout.xyz/pinout/unicorn_phat).
+        NOTE: I found that the hat wouldn't work when I put the pogo pins right side up.  I instead put the pogo pins in the had's GPIO and put the Pi and case down onto the hat.
+    Place hat on top, ensure the pins line up with the hat.
+    Use bolts to to bolt LEDs and Diffuser down.
+5) Confirm pHat works
+    Once the Pi is started, login to SSH or open a terminal and run:
+        sudo python
+            Import unicornhat as hat
+            hat.set_All(255,255,255)
+            hat.show()
+    The hat should have all the LEDs bright white.
 
 # ToDo
  - [ ] Finish Readme
@@ -40,6 +63,9 @@ If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDM
  - [ ] Setup Status section of front end
  - [ ] Put webpage name in config.yaml
  - [ ] Put colour lables in config.yaml
+ - [ ] Add support for Blinkt
+ - [ ] Add support for Unicorn hat (full sized)
+ - [ ] Add support for Unicorn mini
 
  # License
 
