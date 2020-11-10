@@ -28,7 +28,7 @@ Of course you can build this with in many different variations but here I list e
 
 Note prices are approximate and in Canadian Dollars with Canadian store links.  Pimoroni does show their price in CAD if you set the website to do so, but it does still ship from the UK.
 
-You will also need:
+You will also need:<br>
     * Micro-USB powersupply<br>
     * Micro-USB OTG<br>
     * Mini HDMI cable/adapter<br>
