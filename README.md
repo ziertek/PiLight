@@ -84,7 +84,7 @@ The PiLight is meant to be controlled by an agent or external app to change the 
 | [**GET**](#Updatepi) | /api/system/UpdatePi | Updates the Pi OS using apt-get and completes a reboot | 
 | [**GET**](#shutdown) | /api/system/Shutdown | Shuts down the Pi so it can be safely unplugged |
 
-## <aid="colour"></a> Display Colour
+## <a id="colour"></a> Display Colour
 Will display the colour that was specified.  The options are:<br>
  * Green<br>
  * Red<br>
