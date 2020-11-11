@@ -1,5 +1,5 @@
 # PiLight
-WARNING: This readme is still a work in progress.
+Version: 0.5
 
 * [Introduction](#Introduction)
 * [Hardware](#Hardware)
@@ -74,19 +74,50 @@ Arguements:
 # Usage
 When you install PiLight with the installer above it will automatically setup a service called PiLight.service.  This should start once the installer is done and any time the Pi is powered on.  Once the service has started the LEDs will set to White.  Once you see that you can browse to the webpage at http://*Pi-IP-Address*:5000/ and set the colours.
 
-The PiLight has a simple front end but it is meant to be used mostly with API calls for automatic changes.
+The PiLight is meant to be controlled by an agent or external app to change the colours automateically, removing the need to click a button on the web UI.  The API endpoints are as follows:
+
+| Method(s) | Endpoint | Description |
+|:------:|-------|-------|
+| [**GET**](#colour) | /api/colour/*Colour* | Change the hat to the designated Colour | 
+| [**GET**](#rainbow) | /api/colour/Rainbow | Set the hat to display a scrolling rainbox |
+| [**GET**](#Blank) | /api/colour/Blank | Turns off the LEDs on the hat |
+| [**GET**](#Updatepi) | /api/system/UpdatePi | Updates the Pi OS using apt-get and completes a reboot | 
+| [**GET**](#shutdown) | /api/system/Shutdown | Shuts down the Pi so it can be safely unplugged |
+
+## <aid="colour"></a> Display Colour
+Will display the colour that was specified.  The options are:<br>
+ * Green<br>
+ * Red<br>
+ * Yellow<br>
+ * Blue<br>
+ * Pink<br>
+ * Teal<br>
+
+## <aid="rainbow"></a> Display rainbow
+Will display a scrolling rainbow on the hat.
+
+## <aid="blank"></a> Blank
+Turns off the LEDs on the hat.
+
+## <aid="updatepi"></a> Update Pi
+Runs the update script that will get all updates for the OS (assumed Raspberry OS currently), install them, and then reboot.
+
+## <aid="shutdown"></a> Shutdown Pi
+Runs a "Shutdown now" command on the OS to shutdown the Pi allowing it to be safely unplugged.  I recommend giving the Pi 30 seconds or so before unplugging it.
+
 
 # ToDo
- - [ ] Finish Readme
  - [ ] Add support for self updating
  - [ ] Add some animations and icons
  - [ ] Setup Favicon (have display the current status)
  - [ ] Setup Status section of front end
+ - [ ] Add Get Status in API
  - [ ] Put webpage name in config.yaml
  - [ ] Put colour lables in config.yaml
  - [ ] Add support for Blinkt
  - [ ] Add support for Unicorn hat (full sized)
  - [ ] Add support for Unicorn mini
+ - [ ] Look at Home Assistant integration (https://www.home-assistant.io)
 
  # License
 
