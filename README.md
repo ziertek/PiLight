@@ -1,5 +1,5 @@
 # PiLight
-Version: 0.5
+<sub>Version: 0.5</sub>
 
 * [Introduction](#Introduction)
 * [Hardware](#Hardware)
