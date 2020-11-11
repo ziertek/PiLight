@@ -4,10 +4,11 @@ pHat:
 Web:
   Name: Office PiLight
   DebugMode: True
-  GreenLabel: Green
-  YelloLabel: Yellow
-  RedLabel: Red
-  PinkLabel: Pink
-  BlueLabel: Blue
-  TealLabel: Teal
-  BlankLabel: Blank
+  Labels:
+    GreenLabel: Green
+    YelloLabel: Yellow
+    RedLabel: Red
+    PinkLabel: Pink
+    BlueLabel: Blue
+    TealLabel: Teal
+    BlankLabel: Blank

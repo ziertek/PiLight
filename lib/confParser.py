@@ -7,8 +7,8 @@ class Config(object):
 
         self.config = ConfigParser.ConfigParser()
 
-    def get_path(self):
-        return self.config.get('templates', 'path')
+    def get_labels(self):
+        return self.config.get('Web','Labels')
 
 if __name__ == '__main__':
     c = Config()
