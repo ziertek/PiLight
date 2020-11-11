@@ -93,16 +93,16 @@ Will display the colour that was specified.  The options are:<br>
  * Pink<br>
  * Teal<br>
 
-## <aid="rainbow"></a> Display rainbow
+## <a id="rainbow"></a> Display rainbow
 Will display a scrolling rainbow on the hat.
 
-## <aid="blank"></a> Blank
+## <a id="blank"></a> Blank
 Turns off the LEDs on the hat.
 
-## <aid="updatepi"></a> Update Pi
+## <a id="updatepi"></a> Update Pi
 Runs the update script that will get all updates for the OS (assumed Raspberry OS currently), install them, and then reboot.
 
-## <aid="shutdown"></a> Shutdown Pi
+## <a id="shutdown"></a> Shutdown Pi
 Runs a "Shutdown now" command on the OS to shutdown the Pi allowing it to be safely unplugged.  I recommend giving the Pi 30 seconds or so before unplugging it.
 
 
