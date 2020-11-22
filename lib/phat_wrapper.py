@@ -1,22 +1,17 @@
 #!/usr/bin/env python
 
-# Build as I was having issues with the unicorn wrapper from the project.
-# This is just build for the Unicorn pHAT at this point, unlike the original wrapper.
-
 import contextlib
 import io
 import colorsys
 import spidev
-import yaml
+import lib.confParser as config
 import unicornhat as unicorn
 
 class PhatWrapper:
     def __init__(self):
-        with open("lib/config.yaml","r") as ymlfile:
-            cfg = yaml.load(ymlfile,Loader=yaml.SafeLoader)
-
-        self.brightness = cfg["pHat"]["Brightness"]
-        self.rotation = cfg["pHat"]["Rotation"]
+        cfg = config.Config()
+        self.brightness = cfg.getBrightness()
+        self.rotation = cfg.getRotation()
         self.hat = unicorn
         self.hat.set_layout(unicorn.PHAT)
         self.hat.brightness(self.brightness)

@@ -7,6 +7,7 @@ WARNING: This readme is still a work in progress.
     * [Build Instructions](#Build)
 * [Installation](#Installation)
 * [Usage](#Usage)
+* [Config Files](#Config)
 * [ToDo](#ToDo)
 * [License](#License)
 
@@ -55,9 +56,9 @@ If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDM
 The installer has been setup to download the files should they be needed so you should be able to simply install curl (if it isn't already) and run the installer from the like so:
 ```bash
 sudo apt install curl
-curl -sSL https://raw.githubusercontent.com/ziertek/PiLight/master/install.sh | sudo bash -
+curl -sSL https://raw.githubusercontent.com/ziertek/PiLight/master/installers/install.sh | sudo bash -
 ```
-The Installer will install PiLight into the /opt/ directory by default but you can change the location using the -i argument.  The installer also setups up a service for PiLight.  If you don't want the service simply clone or download the repo and run:
+The Installer will install PiLight into the /opt/ directory by default but you can change the location using the -i argument.  The installer also setups up a service for PiLight.  If you don't want the service simply clone/download the repo and run:
 ```bash
 sudo pip install -r .\requirements.txt
 sudo python server.py
@@ -71,19 +72,24 @@ Arguements:
   -v  --version            Shows version details
   -h  --help               Shows this usage message
 ```
+
 # Usage
 When you install PiLight with the installer above it will automatically setup a service called PiLight.service.  This should start once the installer is done and any time the Pi is powered on.  Once the service has started the LEDs will set to White.  Once you see that you can browse to the webpage at http://*Pi-IP-Address*:5000/ and set the colours.
 
 The PiLight has a simple front end but it is meant to be used mostly with API calls for automatic changes.
 
+# Config
+PiLight uses YAML config files to get and set some standard values.  Inside the lib folder you will find the config_default.yaml which is used for default values on the app.  You can also create a config.yaml in the /etc/PiLight/ directory of your Linux OS which can store your personal values.  If a value is not in your personal config.yaml file the value will instead be pulled from the config_default.yaml file.  This allows you to only set values you want to change and easily remove values to go back to working ones.
+
+I use the confuse library to import the config.  If you are curious about it, you can check it out here: https://github.com/beetbox/confuse
+
 # ToDo
- - [ ] Finish Readme
  - [ ] Add support for self updating
  - [ ] Add some animations and icons
  - [ ] Setup Favicon (have display the current status)
  - [ ] Setup Status section of front end
- - [ ] Put webpage name in config.yaml
- - [ ] Put colour lables in config.yaml
+ - [X] Put webpage name in config.yaml
+ - [X] Put colour lables in config.yaml
  - [ ] Add support for Blinkt
  - [ ] Add support for Unicorn hat (full sized)
  - [ ] Add support for Unicorn mini

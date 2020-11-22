@@ -1,15 +1,23 @@
-import yaml
+#!/usr/bin/env python
 
-class Config(object):
+import confuse
+
+class Config:
     def __init__(self):
-        with open("lib/config.yaml","w") as ymlfile:
-            cfg = yaml.load(ymlfile,Loader=yaml.SafeLoader)
+        self.config = confuse.Configuration('PiLight', __name__)
+        
+    def getBrightness(self):
+        brightness = self.config['Hat']['Brightness'].get()
+        return brightness
 
-        self.config = ConfigParser.ConfigParser()
+    def getRotation(self):
+        rotation = self.config['Hat']['Rotation'].get()
+        return rotation
 
-    def get_labels(self):
-        return self.config.get('Web','Labels')
+    def getWebsiteName(self):
+        name = self.config['Web']['Name'].get()
+        return name
 
-if __name__ == '__main__':
-    c = Config()
-    print c.get_path()
+    def getLabels(self):
+        labels = self.config['Web']['Labels'].get()
+        return labels
