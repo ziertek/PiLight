@@ -1,6 +1,0 @@
-pHat:
-  Brightness: 0.5
-  Rotation: 180
-Web:
-  Name: Office PiLight
-  DebugMode: True

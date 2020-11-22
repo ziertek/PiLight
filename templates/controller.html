@@ -1,18 +1,11 @@
 <html>
 <head>
-<title>Braden's PiLight</title>
+<title>{{WebsiteName}}</title>
 <link rel="stylesheet" href="../static/css/main.css">
 </head>
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <h1>PiLight Controller</h1>
-<!-- <div class="home">
-    <h2>Universal Settings:</h2>
-    Include: Brightness, Rotation, "Use Web settings" basically a toggle to make it take input from the windows agent or from the web page<br>
-    For the agent, could have the API look for a user or source that is passed to it to determine if it should be done or not.<br>
-    Setup these settings to be written and read from config file that can also be updated?<br>
-    Setup a setting for "name" instead of naming the page after myself, make it so people can set the name<br>
-</div> -->
 <script type=text/javascript>
         $(function() {
           $('a#Green').on('click', function(e) {
@@ -112,15 +105,19 @@
         });
 </script>
 <div class="home">
+    <h2>Status</h2>
+    <p align=center>STATUS</p>
+</div>
+<div class="home">
     <h2>Standard Colours:</h2>
-    <a href=# id=Green><button class="button green">Green/Available</button></a>
-    <a href=# id=Yellow><button class="button yellow">Yellow/Away</button></a>
-    <a href=# id=Red><button class="button red">Red/Busy</button></a>
-    <a href=# id=Pink><button class="button pink">Pink</button></a>
-    <a href=# id=Blue><button class="button blue">Blue</button></a>
-    <a href=# id=Teal><button class="button teal">Teal</button></a>
-    <a href=# id=Rainbow><button class="button rainbow">Rainbow</button></a>
-    <a href=# id=Blank><button class="button blank">Blank/Off</button></a>
+    <a href=# id=Green><button class="button green">{{GreenLabel}}</button></a>
+    <a href=# id=Yellow><button class="button yellow">{{YellowLabel}}</button></a>
+    <a href=# id=Red><button class="button red">{{RedLabel}}</button></a>
+    <a href=# id=Pink><button class="button pink">{{PinkLabel}}</button></a>
+    <a href=# id=Blue><button class="button blue">{{BlueLabel}}</button></a>
+    <a href=# id=Teal><button class="button teal">{{TealLabel}}</button></a>
+    <a href=# id=Rainbow><button class="button rainbow">{{RainbowLabel}}</button></a>
+    <a href=# id=Blank><button class="button blank">{{BlankLabel}}</button></a>
 </div>
 <!-- <div class="home">
     <h2>Custom Colour:</h2>

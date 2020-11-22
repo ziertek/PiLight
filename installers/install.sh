@@ -76,7 +76,7 @@ if [ $VERBOSE == "false" ]; then
 fi
 
 # Check if we have the required files or if we need to clone them
-FILES=("server.py" "requirements.txt" "PiLight.service" "lib/__init__.py" "lib/phat_Wrapper.py" "lib/config.yaml" "templates/controller.html" "static/css/main.css")
+FILES=("server.py" "requirements.txt" "PiLight.service" "lib/__init__.py" "lib/phat_Wrapper.py" "lib/confParser.py" "lib/config_default.yaml" "templates/controller.html" "static/css/main.css" "Update/UpdateLight.sh" "Update/UpdatePi.sh")
 FILECHECK=true
 for FILE in ${FILES[@]}; do
     if [ $INSTALL_DIR != $SCRIPTPATH ]; then

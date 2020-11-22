@@ -6,9 +6,11 @@ import math
 import os
 from flask import Flask, render_template, request
 from lib.phat_wrapper import PhatWrapper
+import lib.confParser as config
 
 gStatus = "Initialized"
 
+cfg = config.Config()
 hat = PhatWrapper()
 hat.setAll(255,255,255)
 
@@ -16,7 +18,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def controller():
-    return render_template('controller.html')
+    labels = cfg.getLabels()
+    name = cfg.getWebsiteName()
+    return render_template('controller.html',WebsiteName=name,GreenLabel=labels.get('Green'),YellowLabel=labels.get('Yellow'),RedLabel=labels.get('Red'),PinkLabel=labels.get('Pink'),BlueLabel=labels.get('Blue'),TealLabel=labels.get('Teal'),BlankLabel=labels.get('Blank'),RainbowLabel=labels.get('Rainbow'))
 
 # Colour routes, look at making them simply all the same API call with varriable instead
 @app.route('/api/colour/Green')

@@ -1,0 +1,14 @@
+Hat:
+  Brightness: 0.5
+  Rotation: 180
+Web:
+  Name: Office PiLight
+  Labels:
+    Green: Green
+    Yellow: Yellow
+    Red: Red
+    Pink: Pink
+    Blue: Blue
+    Teal: Teal
+    Blank: Blank
+    Rainbow: Rainbow
