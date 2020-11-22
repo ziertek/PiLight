@@ -1,5 +1,4 @@
 # PiLight
-WARNING: This readme is still a work in progress.
 
 * [Introduction](#Introduction)
 * [Hardware](#Hardware)
