@@ -108,7 +108,7 @@ Runs the update script that will get all updates for the OS (assumed Raspberry O
 Runs a "Shutdown now" command on the OS to shutdown the Pi allowing it to be safely unplugged.  I recommend giving the Pi 30 seconds or so before unplugging it.
 
 
-# Config
+# Config Files
 PiLight uses YAML config files to get and set some standard values.  Inside the lib folder you will find the config_default.yaml which is used for default values on the app.  You can also create a config.yaml in the /etc/PiLight/ directory of your Linux OS which can store your personal values.  If a value is not in your personal config.yaml file the value will instead be pulled from the config_default.yaml file.  This allows you to only set values you want to change and easily remove values to go back to working ones.
 
 I use the confuse library to import the config.  If you are curious about it, you can check it out here: https://github.com/beetbox/confuse
@@ -117,7 +117,7 @@ I use the confuse library to import the config.  If you are curious about it, yo
  - [ ] Add support for self updating
  - [ ] Add some animations and icons
  - [ ] Setup Favicon (have display the current status)
- - [ ] Setup Status section of front end
+ - [ ] Setup Status section on front end
  - [X] Put webpage name in config.yaml
  - [X] Put colour lables in config.yaml
  - [ ] Add Get-Status in API
