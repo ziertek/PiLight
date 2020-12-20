@@ -101,7 +101,7 @@ for FILE in ${FILES[@]}; do
 done
 
 if [ $FILECHECK == 'false' ]; then
-    apt install git
+    sudo apt-get install git
     which git > /dev/null
     if [[ $? != 0 ]]; then
         show_msg "${RED}git is not installed... please install git and run the script again!${NORMAL}"
