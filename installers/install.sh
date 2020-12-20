@@ -101,6 +101,7 @@ for FILE in ${FILES[@]}; do
 done
 
 if [ $FILECHECK == 'false' ]; then
+    apt install git
     which git > /dev/null
     if [[ $? != 0 ]]; then
         show_msg "${RED}git is not installed... please install git and run the script again!${NORMAL}"
@@ -116,20 +117,24 @@ if [ $FILECHECK == 'false' ]; then
 fi
 
 case $(uname -s) in
-    Linux|GNU*)     case $(lsb_release -si) in
-                        Ubuntu | Raspbian)      show_msg "${GREEN}Installing required files from apt...${NORMAL}"
-                                                sudo apt-get install -y python3-pip python3-dev
-                                                show_msg "${GREEN}Installing needed files from pip...${NORMAL}"
-                                                sudo pip3 install -r ./requirements.txt
-                                                installSystemdService
-                                                enableSystemdService
-                                                ;;
-                        *)                      show_msg "${RED}${BOLD}Unsupported distribution, please consider submitting a pull request to extend the script${NORMAL}"
-                                                exit 1
-                    esac
-                    ;;
-    *)              show_msg "${RED}${BOLD}Unsupported operating system, please consider submitting a pull request to extend the script${NORMAL}"
-                    exit 1
+    Linux|GNU*)     
+        case $(lsb_release -si) in
+            Ubuntu | Raspbian)      
+                show_msg "${GREEN}Installing required files from apt...${NORMAL}"
+                sudo apt-get install -y python3-pip python3-dev
+                show_msg "${GREEN}Installing needed files from pip...${NORMAL}"
+                sudo pip3 install -r ./requirements.txt
+                installSystemdService
+                enableSystemdService
+                ;;
+            *)
+                show_msg "${RED}${BOLD}Unsupported distribution, please consider submitting a pull request to extend the script${NORMAL}"
+                exit 1
+        esac
+        ;;
+    *)
+        show_msg "${RED}${BOLD}Unsupported operating system, please consider submitting a pull request to extend the script${NORMAL}"
+        exit 1
 esac
 
 # Change permissions of the start up script
