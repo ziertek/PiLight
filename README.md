@@ -55,7 +55,7 @@ If you've used a Pi Zero before you likely have the Keyboard/Mouse, Monitor, HDM
 # Installation
 The installer has been setup to download the files should they be needed so you should be able to simply install curl (if it isn't already) and run the installer from the like so:
 ```bash
-sudo apt install curl
+sudo apt install git
 curl -sSL https://raw.githubusercontent.com/ziertek/PiLight/master/installers/install.sh | sudo bash -
 ```
 The Installer will install PiLight into the /opt/ directory by default but you can change the location using the -i argument.  The installer also setups up a service for PiLight.  If you don't want the service simply clone/download the repo and run:
