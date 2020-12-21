@@ -74,7 +74,7 @@ Arguements:
 ```
 
 # Usage
-When you install PiLight with the installer above it will automatically setup a service called PiLight.service.  This should start once the installer is done and any time the Pi is powered on.  Once the service has started the LEDs will set to White.  Once you see that you can browse to the webpage at http://*Pi-IP-Address*:5000/ and set the colours.
+When you install PiLight with the installer above it will automatically setup a service called PiLight.service.  This should start once the installer is done and any time the Pi is powered on.  Once the service has started the LEDs will set to White.  Once you see that you can browse to the webpage at http://*Pi-IP-Address*/ and set the colours.
 
 The PiLight is meant to be controlled by an agent or external app to change the colours automateically, removing the need to click a button on the web UI.  The API endpoints are as follows:
 

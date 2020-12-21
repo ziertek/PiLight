@@ -2,3 +2,4 @@ flask
 confuse
 spidev
 unicornhat
+waitress
