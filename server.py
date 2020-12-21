@@ -7,6 +7,7 @@ import os
 from flask import Flask, render_template, request
 from lib.phat_wrapper import PhatWrapper
 import lib.confParser as config
+from waitress import serve
 
 gStatus = "Initialized"
 
@@ -125,4 +126,4 @@ def Shutdown():
     return 'OK'
 
 if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0')
+    serve(app, port=80, url_scheme='http')
